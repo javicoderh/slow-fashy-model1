@@ -1,0 +1,49 @@
+.categoriasNav {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+  }
+  
+  /* Estilo por defecto para mobile */
+  .categoriaItem {
+    flex: 0 0 auto;
+    width: 120px;
+    scroll-snap-align: start;
+    text-align: center;
+    color: #F5F5F5;
+    background-color: #111;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    border: 1px solid transparent;
+  }
+  
+  /* Hover fancy */
+  @media (hover: hover) {
+    .categoriaItem:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0, 191, 255, 0.3); /* Deep Sky Blue */
+      border: 1px solid #00BFFF;
+    }
+  }
+  
+  /* Desktop layout */
+  @media (min-width: 768px) {
+    .categoriasNav {
+      justify-content: center;
+      flex-wrap: wrap;
+      overflow-x: hidden;
+      scroll-snap-type: none;
+    }
+  
+    .categoriaItem {
+      width: 150px;
+      flex: 0 0 auto;
+    }
+  }
+  
