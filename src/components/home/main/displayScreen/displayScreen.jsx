@@ -6,8 +6,8 @@ import img3 from '../../../../assets/img3.avif'
 
 const slides = [
   { img: img1, text: 'Vístete con tiempo, no con prisa.' },
-  { img: img3, text: 'Cada prenda, una historia que respira.' },
-  { img: img2, text: 'Moda lenta, alma libre.' }
+  { img: img2, text: 'Cada prenda, una historia que respira.' },
+  { img: img3, text: 'Moda lenta, alma libre.' }
 ]
 
 const DisplayScreen = () => {
@@ -38,7 +38,12 @@ const DisplayScreen = () => {
   return (
     <div className="displayScreen">
       <div className={`slide ${isVisible ? 'fade-in' : 'fade-out'}`}>
-        <img src={currentSlide.img} alt={currentSlide.text} />
+        <img 
+          src={currentSlide.img} 
+          alt={currentSlide.text} 
+          loading="eager"
+          decoding="async"
+        />
         <div className="caption">{currentSlide.text}</div>
       </div>
     </div>
