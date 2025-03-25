@@ -6,17 +6,19 @@ import img3 from '../../../../assets/img3.avif'
 
 const slides = [
   { img: img1, text: 'Vístete con tiempo, no con prisa.' },
-  { img: img2, text: 'Cada prenda, una historia que respira.' },
-  { img: img3, text: 'Moda lenta, alma libre.' }
+  { img: img3, text: 'Cada prenda, una historia que respira.' },
+  { img: img2, text: 'Moda lenta, alma libre.' }
 ]
 
 const DisplayScreen = () => {
   const [currentSlide, setCurrentSlide] = useState(slides[0])
   const [isVisible, setIsVisible] = useState(true)
+  const [readyToShow, setReadyToShow] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIsVisible(false)
+      setReadyToShow(false)
 
       const nextIndex = (slides.indexOf(currentSlide) + 1) % slides.length
       const nextSlide = slides[nextIndex]
@@ -24,13 +26,15 @@ const DisplayScreen = () => {
       preloadImg.src = nextSlide.img
 
       preloadImg.onload = () => {
-        // Esperamos más tiempo para garantizar sincronización total
         setTimeout(() => {
           setCurrentSlide(nextSlide)
-          setTimeout(() => {
-            setIsVisible(true)
-          }, 100) // este delay da tiempo al DOM para establecer la nueva imagen
-        }, 300) // fade-out delay
+          requestAnimationFrame(() => {
+            setReadyToShow(true)
+            setTimeout(() => {
+              setIsVisible(true)
+            }, 50) // Espera mínima para asegurar layout estable
+          })
+        }, 300) // Fade-out terminado
       }
     }, 4000)
 
@@ -40,8 +44,12 @@ const DisplayScreen = () => {
   return (
     <div className="displayScreen">
       <div className={`slide ${isVisible ? 'fade-in' : 'fade-out'}`}>
-        <img src={currentSlide.img} alt={currentSlide.text} />
-        <div className="caption">{currentSlide.text}</div>
+        {readyToShow && (
+          <>
+            <img src={currentSlide.img} alt={currentSlide.text} />
+            <div className="caption">{currentSlide.text}</div>
+          </>
+        )}
       </div>
     </div>
   )
