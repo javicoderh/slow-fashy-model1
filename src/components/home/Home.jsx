@@ -7,6 +7,9 @@ import CategoriasNav from './main/categorias/categorias'
 import DisplayScreen from './main/displayScreen/displayScreen'
 import { useUser } from '../contextos/userContext'
 import LoginButton from './loginButton/login'
+import Miscelaneo from './main/miscelaneo/miscelaneo'
+import ArticulosCarousel from './main/articulos/articulos'
+import Manifiesto from './main/manifiesto/manifiesto'
 
 
 
@@ -37,6 +40,9 @@ useEffect(() => {
       <main>
         <DisplayScreen />
         <CategoriasNav />
+        <Manifiesto/> 
+        <ArticulosCarousel/>
+        <Miscelaneo/>        
       </main>
       <footer>
         <p>Footer</p>

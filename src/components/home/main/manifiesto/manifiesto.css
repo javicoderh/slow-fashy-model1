@@ -1,0 +1,49 @@
+.manifiesto-container {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); /* textura más fuerte */
+    background-size: cover;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  .manifiesto-overlay {
+    background: rgba(245, 245, 245, 0.07); /* más contraste con el fondo negro */
+    backdrop-filter: blur(10px);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: #F5F5F5;
+    max-width: 800px;
+    box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+  
+    /* 🎨 Clip irregular tipo hoja de papiro */
+    clip-path: polygon(
+      5% 0%, 10% 3%, 20% 2%, 30% 0%, 40% 3%, 50% 0%, 60% 2%, 70% 1%, 80% 3%, 90% 0%, 95% 2%, 
+      100% 5%, 98% 20%, 100% 40%, 97% 60%, 100% 80%, 98% 95%, 95% 100%, 
+      90% 97%, 80% 99%, 70% 98%, 60% 100%, 50% 97%, 40% 99%, 30% 98%, 
+      20% 97%, 10% 99%, 5% 100%, 0% 95%, 2% 80%, 0% 60%, 2% 40%, 0% 20%
+    );
+  }
+  
+  .manifiesto-overlay blockquote {
+    font-size: 1.8rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0,191,255,0.15);
+  }
+  
+  .firma {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #D7CCC8;
+    letter-spacing: 2px;
+  }
+  

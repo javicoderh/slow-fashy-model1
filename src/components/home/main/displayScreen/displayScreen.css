@@ -1,9 +1,16 @@
 .displayScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 100vw;
     overflow: hidden;
     padding: 1rem;
     box-sizing: border-box;
+    z-index: 2;
+    margin-bottom: 1rem;
+
   }
   
   .slide {
@@ -13,6 +20,12 @@
     border-radius: 0.5rem;
     overflow: hidden;
     background-color: #111;
+    clip-path: polygon(
+      5% 0%, 10% 3%, 20% 2%, 30% 0%, 40% 3%, 50% 0%, 60% 2%, 70% 1%, 80% 3%, 90% 0%, 95% 2%, 
+      100% 5%, 98% 20%, 100% 40%, 97% 60%, 100% 80%, 98% 95%, 95% 100%, 
+      90% 97%, 80% 99%, 70% 98%, 60% 100%, 50% 97%, 40% 99%, 30% 98%, 
+      20% 97%, 10% 99%, 5% 100%, 0% 95%, 2% 80%, 0% 60%, 2% 40%, 0% 20%
+    );
   }
   
   .slide img {

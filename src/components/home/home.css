@@ -19,8 +19,6 @@
 .homeContainer {
    display: flex;
    flex-direction: column;
-   align-items: center;
-   justify-content: center;
    width: 100vw;
    height: 100vh; 
    overflow-x: hidden;
@@ -35,29 +33,41 @@ header {
     width: 100vw;
 }
 
-main {
-    padding: 0.5%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 70%;
-    width: 100vw;
-    overflow-y: auto;
-    overflow-x: visible;
+header h1 {
+ transform: translateY(70%);
 }
+
+main {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 70px;;
+  /* 🔥 NO height, NO flex, NO overflow */
+}
+
+
 
 footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 10%;
-    width: 100vw;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #111;
+  color: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #333;
+  z-index: 10;
 }
 
+
   .isoTipo {
-    transform: scale(1.35) translateY(-10%);
+    transform: scale(1.35) translateY(10%);
   }
 
   .nestIsoTit {
@@ -146,8 +156,8 @@ footer {
 
   .login-button {
     position: absolute;
-    top: 7.5rem;
-    right: 3rem;
+    top: 1rem;
+    right: 2rem;
     padding: 0.4rem 1rem;
     background-color: #00BFFF;
     color: black;
@@ -155,11 +165,12 @@ footer {
     border-radius: 1rem;
     font-weight: bold;
     text-decoration: none;
-    z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
     cursor: pointer;
     transition: all 0.3s ease;
+    z-index: 999;
   }
+  
   
   .login-button:hover {
     background-color: #F5F5F5;
@@ -167,8 +178,94 @@ footer {
     box-shadow: 0 0 14px rgba(255, 255, 255, 0.8);
   }
   
-  
+  /* sección dashboard de productos -- use el css de home para mantener el layout del header, main y footer */
 
+
+  .crear-producto-form {
+    background-color: #000;
+    color: #F5F5F5;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 2rem auto;
+    border: 1px solid #D7CCC8;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: sans-serif;
+  }
+  
+  .crear-producto-form h2 {
+    color: #00BFFF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 1px solid #D7CCC8;
+    padding-bottom: 0.5rem;
+  }
+  
+  .crear-producto-form input,
+  .crear-producto-form textarea {
+    padding: 0.7rem;
+    border: 1px solid #D7CCC8;
+    background-color: #111;
+    color: #F5F5F5;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  
+  .crear-producto-form input::placeholder,
+  .crear-producto-form textarea::placeholder {
+    color: #aaa;
+  }
+  
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .crear-producto-form button {
+    padding: 0.8rem;
+    background-color: #00BFFF;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .crear-producto-form button:hover {
+    background-color: #0095cc;
+  }
+
+  .abrir-form-btn {
+    position: relative;
+    left: 44%;
+    margin-top: 4rem;
+    padding: 0.4rem 1rem;
+    background-color: #00BFFF;
+    color: black;
+    border: none;
+    width: 200px;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .cancel-btn {
+    margin-left: 4rem;
+
+  }
+  
+  .cancel-btn:hover, .abrir-form-btn:hover {
+    background-color: #eeeeee;
+  }
   
   /* Responsive Mode */
   @media (max-width: 768px) {
@@ -183,6 +280,7 @@ footer {
       gap: 1rem;
       padding: 1rem 0;
       display: none;
+      z-index: 3;
     }
 
     .categoria:first-child {
@@ -197,6 +295,9 @@ footer {
       display: flex;
     }
 
+    .abrir-form-btn {
+      left: 26%;
+    }
   }
   
   

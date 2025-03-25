@@ -1,0 +1,210 @@
+.abrir-lista-btn {
+    padding: 1rem;
+    background-color: #00BFFF;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 2rem auto;
+    display: block;
+  }
+  
+  .abrir-lista-btn:hover {
+    background-color: #0095cc;
+  }
+
+  .lista-productos-wrapper {
+    padding: 2rem;
+    background-color: #000;
+    color: #F5F5F5;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .top-bar button {
+    background-color: transparent;
+    border: 1px solid #D7CCC8;
+    color: #F5F5F5;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .grilla-productos {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cerrar-btn {
+    padding: 0.4rem 1rem;
+    background-color: #00BFFF !important;
+    color: black !important;
+    border: none !important;
+    width: 200px;
+    border-radius: 1rem !important;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+  
+  @media (min-width: 1024px) {
+    .grilla-productos {
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+  
+  .producto-card {
+    border: 1px solid #D7CCC8;
+    border-radius: 10px;
+    padding: 0.5rem;
+    background-color: #111;
+    text-align: center;
+  }
+  
+  .producto-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  .producto-card p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+  
+  .producto-card button {
+    background-color: #00BFFF;
+    color: #000;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-form {
+    background-color: #000;
+    border: 1px solid #D7CCC8;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 90%;
+    color: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-form form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+  }
+  
+  .modal-form input,
+  .modal-form textarea {
+    padding: 0.7rem;
+    border: 1px solid #D7CCC8;
+    background-color: #111;
+    color: #F5F5F5;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  .modal-form h2 {
+    color: #00BFFF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .modal-form .form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+  
+  .modal-form button {
+    padding: 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .modal-form button[type="submit"] {
+    background-color: #00BFFF;
+    color: #000;
+    border: none;
+  }
+  
+  .modal-form .cancel-btn {
+    background-color: transparent;
+    color: #F5F5F5;
+    border: 1px solid #D7CCC8;
+  }
+
+  .abrir-lista-btn {
+    position: relative;
+    left: -0.7%;
+    margin-top: 4rem;
+    padding: 0.4rem 1rem;
+    background-color: #00BFFF;
+    color: black;
+    border: none;
+    width: 200px;
+    border-radius: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+  }
+
+  .cancel-btn {
+    margin-left: 4rem;
+
+  }
+  
+  .cancel-btn:hover, .abrir-form-btn:hover {
+    background-color: #eeeeee;
+  }
+
+  .input-busqueda {
+    margin-bottom:  2rem;
+    margin-left: 2rem;
+  }
+
+  
+  
+  @media (max-width: 768px) {
+    
+    .abrir-lista-btn {
+     left: 0.7%
+    }
+  }
