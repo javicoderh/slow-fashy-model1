@@ -21,10 +21,15 @@ const slides = [
 
 const DisplayScreen = () => {
   const [index, setIndex] = useState(0)
+  const [isVisible, setIsVisible] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex(prev => (prev + 1) % slides.length)
+      setIsVisible(false)
+      setTimeout(() => {
+        setIndex(prev => (prev + 1) % slides.length)
+        setIsVisible(true)
+      }, 300) // tiempo de transición
     }, 4000)
     return () => clearInterval(interval)
   }, [])
@@ -33,11 +38,8 @@ const DisplayScreen = () => {
 
   return (
     <div className="displayScreen">
-      <div className="slide fade" key={index}>
-        <img
-          src={currentSlide.img}
-          alt={`Slide ${index + 1}`}
-        />
+      <div className={`slide ${isVisible ? 'fade-in' : 'fade-out'}`}>
+        <img src={currentSlide.img} alt={`Slide ${index + 1}`} />
         <div className="caption">{currentSlide.text}</div>
       </div>
     </div>
