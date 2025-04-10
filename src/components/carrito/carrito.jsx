@@ -27,7 +27,7 @@ const CarritoFlotante = () => {
               <div key={i} className="carrito-item">                
                 <p>{item.nombre}</p>
                 <div className="carritoNest">
-                    <img src={item.imagen_url} height={100} alt="" />
+                    <img className='productCarritoImg' src={item.imagen_portada_url} height={100} alt="" />
                     <div className="botonBorrarNest">
                         <p>{item.cantidad} unidad{item.cantidad > 1 ? 'es' : ''}</p>
                         <button className="carrito-eliminar" onClick={() => removeItem(item.id)}>

@@ -8,7 +8,7 @@ const Nav = () => {
     <nav className="nav">
       <div className={`nav-links ${open ? 'open' : ''}`}>
         <a href="/">Inicio</a>
-        <a href="/productos">Productos</a>
+        <a href="/lista-productos">Productos</a>
         <a href="/novedades">Novedades</a>
         <a href="/nosotros">Nosotros</a>
         <a href="/contacto">Contacto</a>

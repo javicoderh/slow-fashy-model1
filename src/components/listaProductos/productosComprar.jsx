@@ -7,6 +7,7 @@ import Nav from '../home/nav';
 import LoginButton from '../home/loginButton/login';
 import CarritoFlotante from '../carrito/carrito';
 import ModalProducto from './modalProducto';
+import BotonConfig from '../home/main/botonConfig/config';
 
 const ProductosComprar = () => {
   const { addItem } = useCart();
@@ -26,6 +27,7 @@ const ProductosComprar = () => {
         </div>
         <Nav />
         <LoginButton />
+        <BotonConfig />
         <CarritoFlotante />
       </header>
       <main>
