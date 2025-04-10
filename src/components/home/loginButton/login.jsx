@@ -15,10 +15,12 @@ const LoginButton = () => {
   }
 
   return isLoggedIn ? (
+    
     <button className="login-button" onClick={handleLogout}>
       Logout
     </button>
   ) : (
+    
     <a href="/registro" className="login-button">
       Login
     </a>
