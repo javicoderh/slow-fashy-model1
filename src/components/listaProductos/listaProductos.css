@@ -1,0 +1,210 @@
+.productos-grid {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+  }
+  
+  .producto-card {
+    background-color: #272727;
+    padding: 2rem;
+    transition: transform 0.2s ease;
+    clip-path: polygon(
+      10% 0%, 25% 5%, 40% 2%, 55% 6%, 70% 3%, 85% 4%, 95% 8%,
+      100% 25%, 97% 40%, 100% 55%, 97% 70%, 100% 85%, 95% 100%,
+      80% 97%, 65% 100%, 50% 97%, 35% 99%, 20% 96%, 10% 100%,
+      4% 95%, 0% 80%, 2% 60%, 0% 35%, 2% 20%
+    );
+    border: none;
+  }
+  
+  .producto-card:hover {
+    transform: scale(1.015);
+  }
+  
+  .producto-card h2 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+  }
+  
+  .producto-card p {
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin: 0.25rem 0;
+  }
+  
+  .producto-autor {
+    font-style: italic;
+    color: #ffffff;
+  }
+  
+  .producto-precio {
+    font-weight: bold;
+    color: #f7f7f7;
+  }
+  
+  .boton-agregar {
+    margin-top: 1rem;
+    background-color: #00BFFF;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .boton-agregar:hover {
+    background-color: #0099cc;
+  }
+  
+  .cardImg {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  
+  .modal-contenido {
+    background: rgb(75, 75, 75);
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+  }
+
+  .boton-cerrar {
+    margin-left: 1rem;
+  }
+  
+  .modal-img {
+    max-width: 400px;
+    height: 400px;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+  }
+  
+  .boton-cerrar {
+    margin-top: 1rem;
+    background: #888;
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  .carousel {
+    position: relative;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-img {
+    max-width: 300px;
+    height: 300px;
+    border-radius: 5%;
+    border-radius: 6px;
+  }
+  
+  .btn-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(34, 34, 34, 0.7);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+  }
+  
+  .btn-carrusel.izq {
+    left: 0.5rem;
+  }
+  
+  .btn-carrusel.der {
+    right: 0.5rem;
+  }
+  
+
+  @media (min-width: 1024px) {
+    .productos-grid {
+    display: grid;
+    gap: 1.5rem;
+    padding-left: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    width: 100%;
+    }
+  
+  .producto-card {
+    transition: transform 0.2s ease;
+    display: flex;
+    border:none;
+    width: 300px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    clip-path: polygon(
+      10% 0%, 25% 5%, 40% 2%, 55% 6%, 70% 3%, 85% 4%, 95% 8%,
+      100% 25%, 97% 40%, 100% 55%, 97% 70%, 100% 85%, 95% 100%,
+      80% 97%, 65% 100%, 50% 97%, 35% 99%, 20% 96%, 10% 100%,
+      4% 95%, 0% 80%, 2% 60%, 0% 35%, 2% 20%
+    );
+  }
+  
+  .producto-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .cardImg {
+    width: 150px !important;
+    height: 250px !important;
+    max-height: 250px;
+    object-fit:contain;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .producto-precio {
+    font-weight: bold;
+  }
+  
+  .producto-autor {
+    font-style: italic;
+  }
+  
+  .boton-agregar {
+    margin-top: 0.75rem;
+    background-color: #00BFFF;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .boton-agregar:hover {
+    background-color: #0099cc;
+  }
+}

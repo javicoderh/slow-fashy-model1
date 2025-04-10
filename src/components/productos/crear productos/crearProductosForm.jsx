@@ -7,13 +7,15 @@ const CrearProductoForm = ({ onClose }) => {
     nombre: "",
     descripcion: "",
     precio: "",
-    moneda: "USD",
+    moneda: "CLP", // por consistencia con el backend
     stock: 0,
     categoria: "",
     etiquetas: "",
-    imagen_url: "",
+    imagen_portada_url: "",
+    imagenes_url: [""],
     tienda: "",
     autor: "",
+    preferencia: "",
     activo: true
   });
 
@@ -25,13 +27,31 @@ const CrearProductoForm = ({ onClose }) => {
     }));
   };
 
+  const handleImagenChange = (index, value) => {
+    const nuevas = [...producto.imagenes_url];
+    nuevas[index] = value;
+    setProducto((prev) => ({ ...prev, imagenes_url: nuevas }));
+  };
+
+  const agregarImagen = () => {
+    setProducto((prev) => ({
+      ...prev,
+      imagenes_url: [...prev.imagenes_url, ""],
+    }));
+  };
+
+  const eliminarImagen = (index) => {
+    const nuevas = producto.imagenes_url.filter((_, i) => i !== index);
+    setProducto((prev) => ({ ...prev, imagenes_url: nuevas }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
       ...producto,
       precio: parseFloat(producto.precio),
       stock: parseInt(producto.stock),
-      etiquetas: producto.etiquetas.split(",").map(et => et.trim()),
+      etiquetas: producto.etiquetas.split(",").map((et) => et.trim()),
     };
 
     try {
@@ -39,8 +59,9 @@ const CrearProductoForm = ({ onClose }) => {
       await axios.post(`https://slowfashion.onrender.com${endpoint}`, payload);
       alert("Producto creado correctamente");
       setProducto({
-        nombre: "", descripcion: "", precio: "", moneda: "USD", stock: 0,
-        categoria: "", etiquetas: "", imagen_url: "", tienda: "", autor: "", activo: true
+        nombre: "", descripcion: "", precio: "", moneda: "CLP", stock: 0,
+        categoria: "", etiquetas: "", imagen_portada_url: "", imagenes_url: [""],
+        tienda: "", autor: "", activo: true
       });
       onClose();
     } catch (err) {
@@ -58,9 +79,34 @@ const CrearProductoForm = ({ onClose }) => {
       <input name="stock" type="number" placeholder="Stock inicial" value={producto.stock} onChange={handleChange} required />
       <input name="categoria" placeholder="Categoría" value={producto.categoria} onChange={handleChange} required />
       <input name="etiquetas" placeholder="Etiquetas (separadas por coma)" value={producto.etiquetas} onChange={handleChange} />
-      <input name="imagen_url" placeholder="URL de la imagen" value={producto.imagen_url} onChange={handleChange} />
+      <input name="imagen_portada_url" placeholder="URL de la imagen de portada" value={producto.imagen_portada_url} onChange={handleChange} required />
+
+      <label>Imágenes adicionales (URLs)</label>
+      {producto.imagenes_url.map((url, index) => (
+        <div key={index} style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+          <input
+            type="text"
+            placeholder={`Imagen ${index + 1}`}
+            value={url}
+            onChange={(e) => handleImagenChange(index, e.target.value)}
+            style={{ flex: 1 }}
+          />
+          <button type="button" onClick={() => eliminarImagen(index)}>❌</button>
+        </div>
+      ))}
+      <button type="button" onClick={agregarImagen}>
+        ➕ Agregar imagen
+      </button>
+
       <input name="tienda" placeholder="Tienda" value={producto.tienda} onChange={handleChange} required />
       <input name="autor" placeholder="Autor (opcional)" value={producto.autor} onChange={handleChange} />
+      <input
+        name="preferencia"
+        type="number"
+        placeholder="Nivel de preferencia (opcional)"
+        value={producto.preferencia}
+        onChange={handleChange}
+      />
       <label className="checkbox-label">
         <input type="checkbox" name="activo" checked={producto.activo} onChange={handleChange} />
         Activo

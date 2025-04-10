@@ -20,12 +20,6 @@
   position: relative;
   padding: 0 1rem;
   box-sizing: border-box;
-  clip-path: polygon(
-      10% 0%, 25% 5%, 40% 2%, 55% 6%, 70% 3%, 85% 4%, 95% 8%,
-      100% 25%, 97% 40%, 100% 55%, 97% 70%, 100% 85%, 95% 100%,
-      80% 97%, 65% 100%, 50% 97%, 35% 99%, 20% 96%, 10% 100%,
-      4% 95%, 0% 80%, 2% 60%, 0% 35%, 2% 20%
-    );
 }
 
 .imagen-contenedor {
@@ -35,6 +29,12 @@
   overflow: hidden;
   border-radius: 1rem;
   transition: transform 0.4s ease;
+  clip-path: polygon(
+      10% 0%, 25% 5%, 40% 2%, 55% 6%, 70% 3%, 85% 4%, 95% 8%,
+      100% 25%, 97% 40%, 100% 55%, 97% 70%, 100% 85%, 95% 100%,
+      80% 97%, 65% 100%, 50% 97%, 35% 99%, 20% 96%, 10% 100%,
+      4% 95%, 0% 80%, 2% 60%, 0% 35%, 2% 20%
+    );
 }
 
 .imagen-contenedor img {
@@ -47,7 +47,7 @@
 .texto-articulo {
   position: absolute;
   bottom: 1rem;
-  left: 1rem;
+  left: 2rem;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
   border-radius: 0.5rem;

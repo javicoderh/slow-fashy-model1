@@ -1,24 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { useProducts } from "../../contextos/productosContext"; // Usamos el contexto
 import EditarProductoForm from "./editarProductoForm";
 import "./editarProducto.css";
 
 const ListaProductos = ({ onClose }) => {
-  const [productos, setProductos] = useState([]);
+  const { productos, loading } = useProducts(); // productos globales
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
   const [busqueda, setBusqueda] = useState("");
 
-  useEffect(() => {
-    const fetchProductos = async () => {
-      try {
-        const res = await axios.get("https://slowfashion.onrender.com/productos");
-        setProductos(res.data.productos);
-      } catch (err) {
-        console.error("Error al obtener productos", err);
-      }
-    };
-    fetchProductos();
-  }, []);
+  const productosFiltrados = productos.filter((p) =>
+    p.nombre.toLowerCase().includes(busqueda.toLowerCase())
+  );
 
   return (
     <div className="lista-productos-wrapper">
@@ -36,21 +28,22 @@ const ListaProductos = ({ onClose }) => {
         className="input-busqueda"
       />
 
-      <div className="grilla-productos">
-      {productos
-  .filter((p) =>
-    p.nombre.toLowerCase().includes(busqueda.toLowerCase())
-  )
-  .map((producto) => (
-    <div className="producto-card" key={producto.id}>
-      <img src={producto.imagen_url} alt={producto.nombre} />
-      <p>{producto.nombre}</p>
-      <button onClick={() => setProductoSeleccionado(producto)}>
-        Editar
-      </button>
-    </div>
-))}
-      </div>
+      {loading ? (
+        <p>Cargando productos...</p>
+      ) : (
+        <div className="grilla-productos">
+          {productosFiltrados.map((producto) => (
+            <div className="producto-card" key={producto.id}>
+              <img src={producto.imagen_url} alt={producto.nombre} />
+              <p>{producto.nombre}</p>
+              <button onClick={() => setProductoSeleccionado(producto)}>
+                Editar
+              </button>
+            </div>
+          ))}
+        </div>
+      )}
+
       {productoSeleccionado && (
         <EditarProductoForm 
           producto={productoSeleccionado}

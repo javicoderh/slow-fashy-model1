@@ -10,6 +10,8 @@ import LoginButton from './loginButton/login'
 import Miscelaneo from './main/miscelaneo/miscelaneo'
 import ArticulosCarousel from './main/articulos/articulos'
 import Manifiesto from './main/manifiesto/manifiesto'
+import CarritoFlotante from '../carrito/carrito'
+import BotonConfig from './main/botonConfig/config'
 
 
 
@@ -36,6 +38,8 @@ useEffect(() => {
         </div>
       <Nav />
       <LoginButton />
+      <BotonConfig />
+      <CarritoFlotante />
       </header>
       <main>
         <DisplayScreen />

@@ -1,0 +1,113 @@
+.carrito-boton {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: #0086b3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  h2 {
+    color: white;
+  }
+  
+  .carrito-cantidad {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #ff4757;
+    color: white;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    border-radius: 999px;
+  }
+  
+  .carrito-modal {
+    position: fixed;
+    top: 2%;
+    right: -100%;
+    width: 300px;
+    height: 85vh;
+    background-color: #272727;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    padding: 2rem 1rem;
+    transition: right 0.4s ease-in-out;
+    z-index: 999;
+    display: flex;
+    border-radius: 2%;
+    border: solid 2px rgb(133, 133, 133);
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .carritoNest {
+    display: flex;
+    flex-direction: row;
+    gap:20px;
+  }
+  
+  .carrito-modal.abierto {
+    right: 0;
+  }
+  
+  .carrito-items {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .carrito-item {
+    border-bottom: 1px solid #ddd;
+    padding: 0.5rem 0;
+  }
+  
+  .carrito-total {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+
+  .carrito-item img {
+    border-radius: 5%;
+    box-shadow: -2px 0px 10px rgb(255, 255, 255);
+    border: solid 1px rgb(94, 94, 94);
+  }
+
+  .botonBorrarNest {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .carrito-eliminar {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: color 0.2s ease;
+    align-self: flex-start;
+  }
+  
+  .carrito-eliminar:hover {
+    color: #ff4d4f;
+  }
+  
+  
+  .carrito-pagar {
+    background-color: #00BFFF;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
