@@ -10,6 +10,10 @@ const ModalProducto = ({ producto, onClose, onAgregar }) => {
   const siguiente = () => setIndex((prev) => (prev + 1) % imagenes.length);
   const anterior = () => setIndex((prev) => (prev - 1 + imagenes.length) % imagenes.length);
 
+  const precioFinal = producto.descuento
+    ? producto.precio * (1 - producto.descuento)
+    : producto.precio;
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-contenido" onClick={(e) => e.stopPropagation()}>
@@ -26,10 +30,22 @@ const ModalProducto = ({ producto, onClose, onAgregar }) => {
         )}
         <h2>{producto.nombre}</h2>
         <p>{producto.descripcion}</p>
-        <p className="producto-precio">{producto.precio} CLP</p>
+
+        {producto.descuento ? (
+          <p className="producto-precio">
+            <span className="precio-original">{producto.precio.toLocaleString()} CLP</span>{" "}
+            <span className="precio-con-descuento">{precioFinal.toLocaleString()} CLP</span>
+          </p>
+        ) : (
+          <p className="producto-precio precio-normal">
+            {producto.precio.toLocaleString()} CLP
+          </p>
+        )}
+
         <p className="producto-autor">
           {producto.autor ? `Diseñado por ${producto.autor}` : 'Autor desconocido'}
         </p>
+
         <button className="boton-agregar" onClick={() => onAgregar(producto)}>
           Agregar al carrito
         </button>

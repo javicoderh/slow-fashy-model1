@@ -3,6 +3,7 @@ import Home from './components/home/Home'
 import UsuarioForm from './components/usuarios/registro'
 import Dashboardproductos from './components/productos/dashboard'
 import ProductosComprar from './components/listaProductos/productosComprar'
+import Checkout from './components/checkout/checkout'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path="/registro" element={<UsuarioForm />} />
       <Route path="/productos" element={<Dashboardproductos />} />
       <Route path="/lista-productos" element={<ProductosComprar />} />
+      <Route path="/checkout" element={<Checkout/>} />
     </Routes>
   )
 }

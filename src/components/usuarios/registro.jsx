@@ -44,7 +44,7 @@ const UsuarioForm = () => {
 
       if (response.ok) {
         setMensaje(`✅ ${modo === 'registro' ? 'Usuario creado' : 'Login exitoso'}`)
-        login(data.usuario)
+        login(data.usuario || data)
         setTimeout(() => {
           setMensaje('')
           navigate('/')
@@ -95,7 +95,7 @@ const UsuarioForm = () => {
             <input name="ciudad" placeholder="Ciudad" value={formData.ciudad} onChange={handleChange} />
             <input name="pais" placeholder="País" value={formData.pais} onChange={handleChange} />
             <input name="genero" placeholder="Género" value={formData.genero} onChange={handleChange} />
-            <input name="tipo_usuario" placeholder="Tipo de usuario" value={formData.tipo_usuario} onChange={handleChange} required />
+            <input type="hidden" name="tipo_usuario" value="cliente" />
           </>
         )}
 

@@ -6,6 +6,7 @@ import "./editarProducto.css";
 const EditarProductoForm = ({ producto, onClose }) => {
   const [formData, setFormData] = useState({
     ...producto,
+    descuento: producto.descuento ?? "", // 🆕
     imagenes_url: producto.imagenes_url?.length ? producto.imagenes_url : [""]
   });
 
@@ -44,20 +45,20 @@ const EditarProductoForm = ({ producto, onClose }) => {
       ...formData,
       precio: parseFloat(formData.precio),
       stock: parseInt(formData.stock),
+      descuento: formData.descuento ? parseFloat(formData.descuento) : null,
       etiquetas: typeof formData.etiquetas === "string"
         ? formData.etiquetas.split(",").map((et) => et.trim())
         : formData.etiquetas,
     };
-
+  
     try {
-      const res = await axios.put(`https://slowfashion.onrender.com/productos/${formData.id}`, payload);
-      const productoActualizado = res.data.producto;
-
+      await axios.put(`https://slowfashion.onrender.com/productos/${formData.id}`, payload);
+  
       const nuevosProductos = productos.map((p) =>
-        p.id === productoActualizado.id ? productoActualizado : p
+        p.id === formData.id ? { ...formData } : p
       );
       setProductos(nuevosProductos);
-
+  
       alert("Producto actualizado correctamente");
       onClose();
     } catch (err) {
@@ -73,14 +74,23 @@ const EditarProductoForm = ({ producto, onClose }) => {
         <form onSubmit={handleSubmit}>
           <label htmlFor="nombre">Nombre</label>
           <input name="nombre" value={formData.nombre} onChange={handleChange} required />
+          
           <label htmlFor="descripcion">Descripción</label>
           <textarea name="descripcion" value={formData.descripcion} onChange={handleChange} required />
+          
           <label htmlFor="precio">Precio</label>
           <input name="precio" type="number" step="0.01" value={formData.precio} onChange={handleChange} required />
+
+          {/* 🆕 Descuento */}
+          <label htmlFor="descuento">Descuento (ej: 0.2 = 20%)</label>
+          <input name="descuento" type="number" step="0.01" value={formData.descuento} onChange={handleChange} />
+
           <label htmlFor="stock">Stock</label>
           <input name="stock" type="number" value={formData.stock} onChange={handleChange} required />
+          
           <label htmlFor="categoria">Categoría</label>
           <input name="categoria" value={formData.categoria} onChange={handleChange} required />
+          
           <label htmlFor="etiquetas">Etiquetas / #hashtags</label>
           <input name="etiquetas" value={Array.isArray(formData.etiquetas) ? formData.etiquetas.join(", ") : formData.etiquetas} onChange={handleChange} />
           
@@ -106,19 +116,18 @@ const EditarProductoForm = ({ producto, onClose }) => {
 
           <label htmlFor="tienda">Nombre tienda</label>
           <input name="tienda" value={formData.tienda} onChange={handleChange} required />
+          
           <label htmlFor="autor">Nombre autor</label>
           <input name="autor" value={formData.autor || ""} onChange={handleChange} />
+          
           <label htmlFor="preferencia">Nivel de preferencia</label>
-          <input
-            name="preferencia"
-            type="number"
-            value={formData.preferencia}
-            onChange={handleChange}
-          />
+          <input name="preferencia" type="number" value={formData.preferencia} onChange={handleChange} />
+          
           <label className="checkbox-label">
             <input type="checkbox" name="activo" checked={formData.activo} onChange={handleChange} />
             Activo
           </label>
+
           <div className="form-actions">
             <button type="submit">Guardar cambios</button>
             <button type="button" onClick={onClose} className="cancel-btn">Cerrar</button>

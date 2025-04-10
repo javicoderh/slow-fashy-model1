@@ -7,7 +7,7 @@ const CrearProductoForm = ({ onClose }) => {
     nombre: "",
     descripcion: "",
     precio: "",
-    moneda: "CLP", // por consistencia con el backend
+    moneda: "CLP",
     stock: 0,
     categoria: "",
     etiquetas: "",
@@ -16,6 +16,7 @@ const CrearProductoForm = ({ onClose }) => {
     tienda: "",
     autor: "",
     preferencia: "",
+    descuento: "", // 🆕
     activo: true
   });
 
@@ -51,6 +52,7 @@ const CrearProductoForm = ({ onClose }) => {
       ...producto,
       precio: parseFloat(producto.precio),
       stock: parseInt(producto.stock),
+      descuento: producto.descuento ? parseFloat(producto.descuento) : null,
       etiquetas: producto.etiquetas.split(",").map((et) => et.trim()),
     };
 
@@ -61,7 +63,7 @@ const CrearProductoForm = ({ onClose }) => {
       setProducto({
         nombre: "", descripcion: "", precio: "", moneda: "CLP", stock: 0,
         categoria: "", etiquetas: "", imagen_portada_url: "", imagenes_url: [""],
-        tienda: "", autor: "", activo: true
+        tienda: "", autor: "", preferencia: "", descuento: "", activo: true
       });
       onClose();
     } catch (err) {
@@ -76,6 +78,10 @@ const CrearProductoForm = ({ onClose }) => {
       <input name="nombre" placeholder="Nombre" value={producto.nombre} onChange={handleChange} required />
       <textarea name="descripcion" placeholder="Descripción" value={producto.descripcion} onChange={handleChange} required />
       <input name="precio" type="number" step="0.01" placeholder="Precio" value={producto.precio} onChange={handleChange} required />
+      
+      {/* 🆕 Campo descuento */}
+      <input name="descuento" type="number" step="0.01" placeholder="Descuento (ej: 0.2 = 20%)" value={producto.descuento} onChange={handleChange} />
+
       <input name="stock" type="number" placeholder="Stock inicial" value={producto.stock} onChange={handleChange} required />
       <input name="categoria" placeholder="Categoría" value={producto.categoria} onChange={handleChange} required />
       <input name="etiquetas" placeholder="Etiquetas (separadas por coma)" value={producto.etiquetas} onChange={handleChange} />
