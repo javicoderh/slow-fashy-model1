@@ -3,6 +3,7 @@
   padding: 2rem;
   color: #F5F5F5;
   box-sizing: border-box;
+  transform: translateY(-15%);
 }
 
 .articulos-carousel h2 {
@@ -50,18 +51,24 @@
   left: 2rem;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 1rem;
+  color: white;
   border-radius: 0.5rem;
   max-width: 90%;
+  text-decoration: none;
 }
 
 .texto-articulo h3 {
   margin: 0;
   font-size: 1.2rem;
+  text-decoration: none;
+  color: white;
 }
 
 .texto-articulo p {
   margin: 0.3rem 0 0;
   font-size: 0.95rem;
+  text-decoration: none;
+  color: white;
 }
 
 .flecha {
@@ -100,6 +107,18 @@
 .salir-der {
   animation: slideOutToLeft 0.25s ease forwards;
 }
+
+.mensaje-feedback {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  font-weight: bold;
+  color: #333;
+  border-left: 4px solid #00BFFF;
+  animation: fadeIn 0.4s ease;
+}
+
 
 @keyframes slideInFromLeft {
   from { transform: translateX(-100%); opacity: 0; }

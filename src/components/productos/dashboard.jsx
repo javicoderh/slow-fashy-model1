@@ -6,9 +6,11 @@ import Nav from "../home/nav";
 import LoginButton from "../home/loginButton/login";
 import CrearProductoForm from "./crear productos/crearProductosForm";
 import EditarProducto from "./editar productos/editarProducto";
+import CrearArticuloForm from "../home/main/articulos/crearArticuloForm";
 
 const Dashboardproductos = () => {
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
+    const [mostrarFormularioArticulo, setMostrarFormularioArticulo] = useState(false);
 
   const handleAbrir = () => setMostrarFormulario(true);
   const handleCerrar = () => setMostrarFormulario(false);
@@ -36,6 +38,13 @@ const Dashboardproductos = () => {
         <CrearProductoForm onClose={handleCerrar} />
       )}    
       <EditarProducto /> 
+      {!mostrarFormularioArticulo ? (
+  <button onClick={() => setMostrarFormularioArticulo(true)} className="abrir-form-btn">
+    Crear artículo
+  </button>
+) : (
+  <CrearArticuloForm onClose={() => setMostrarFormularioArticulo(false)} />
+)}
     </main>
     <footer>
       <p>Footer</p>

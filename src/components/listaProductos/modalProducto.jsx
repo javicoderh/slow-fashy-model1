@@ -34,6 +34,7 @@ const ModalProducto = ({ producto, onClose, onAgregar }) => {
         {producto.descuento ? (
           <p className="producto-precio">
             <span className="precio-original">{producto.precio.toLocaleString()} CLP</span>{" "}
+            <br />
             <span className="precio-con-descuento">{precioFinal.toLocaleString()} CLP</span>
           </p>
         ) : (
@@ -49,6 +50,7 @@ const ModalProducto = ({ producto, onClose, onAgregar }) => {
         <button className="boton-agregar" onClick={() => onAgregar(producto)}>
           Agregar al carrito
         </button>
+        <br/>
         <button className="boton-cerrar" onClick={onClose}>Cerrar</button>
       </div>
     </div>
