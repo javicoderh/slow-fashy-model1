@@ -7,6 +7,7 @@ import LoginButton from "../home/loginButton/login";
 import CrearProductoForm from "./crear productos/crearProductosForm";
 import EditarProducto from "./editar productos/editarProducto";
 import CrearArticuloForm from "../home/main/articulos/crearArticuloForm";
+import ListaArticulosEdit from "../home/main/articulos/editArticulos";
 
 const Dashboardproductos = () => {
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -45,6 +46,7 @@ const Dashboardproductos = () => {
 ) : (
   <CrearArticuloForm onClose={() => setMostrarFormularioArticulo(false)} />
 )}
+<ListaArticulosEdit />
     </main>
     <footer>
       <p>Footer</p>

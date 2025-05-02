@@ -41,7 +41,7 @@ const ArticulosCarousel = () => {
       <h2>Artículos de moda sustentable y estilo</h2>
 
       <div className="carousel-display">
-        <button className="flecha izquierda" onClick={() => cambiarSlide('izquierda')}>
+        <button className="flecha izquierdaOut" onClick={() => cambiarSlide('izquierda')}>
           <FaChevronLeft />
         </button>
 
@@ -49,14 +49,14 @@ const ArticulosCarousel = () => {
           to={`/articulos/${actual.id}`}
           className={`imagen-contenedor ${animacion}`}
         >
-          <img src={actual.imagen_destacada} alt={actual.titulo} />
+          <img src={actual.imagen_destacada} height={600} alt={actual.titulo} />
           <div className="texto-articulo">
             <h3>{actual.titulo}</h3>
             <p>{actual.bajada}</p>
           </div>
         </Link>
 
-        <button className="flecha derecha" onClick={() => cambiarSlide('derecha')}>
+        <button className="flecha derechaOut" onClick={() => cambiarSlide('derecha')}>
           <FaChevronRight />
         </button>
       </div>

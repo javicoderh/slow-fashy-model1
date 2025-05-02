@@ -1,6 +1,7 @@
 // ListaArticulos.jsx
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import "./articulos.css"
 
 const ListaArticulos = ({ onSeleccionar }) => {
   const [articulos, setArticulos] = useState([])
